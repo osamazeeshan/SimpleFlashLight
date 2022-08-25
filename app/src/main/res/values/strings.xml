@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">That Flash Light</string>
+
+    <string name="dialog_button_ok">OK</string>
+    <string name="dialog_title_information">Information</string>
+    <string name="dialog_flash_light_permission_message">According to Android app permission policies this application requires the camera feature</string>
+
+</resources>
