@@ -29,21 +29,6 @@ public class CommonUtil {
                 }
             });
 
-//            if (!isNullOrEmpty(negativeButton)) {
-//                alertDialogBuilder.setNegativeButton(negativeButton, new DialogInterface.OnClickListener() {
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        try {
-//                            if (listener != null) {
-//                                listener.onClick(dialog, which);
-//                            }
-//                            dialog.cancel();
-//                        } catch (Exception e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                });
-//            }
-
             AlertDialog alertDialog = alertDialogBuilder.create();
             alertDialog.show();
         } catch (Exception e) {

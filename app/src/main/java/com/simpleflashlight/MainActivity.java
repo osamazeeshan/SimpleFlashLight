@@ -253,9 +253,6 @@ public class MainActivity extends AppCompatActivity implements SensorListener {
     }
 
     private void turnOnFlashLight() {
-//        if(mMediaPlayerOnSound == null) {
-//            return;
-//        }
         try {
             if(mIsFlashLight) {
                 if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -372,29 +369,9 @@ public class MainActivity extends AppCompatActivity implements SensorListener {
         }
     }
 
-//    @Override
-//    public boolean onKeyDown(int keyCode, KeyEvent event) {
-//        if (event.getKeyCode() == KeyEvent.KEYCODE_POWER) {
-//            mDontTurnOffFlash = true;
-//        }
-//        return super.onKeyDown(keyCode, event);
-//    }
-//
-//    @Override
-//    public boolean dispatchKeyEvent(KeyEvent event) {
-//        if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
-//            if (event.getAction() == KeyEvent.ACTION_UP){
-//
-//                return true;
-//            }}
-//        return super.dispatchKeyEvent(event);
-//    };
-
-
     private boolean requestCameraPermission() {
         try {
             int permissionCameraCheck = ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA);
-//            int permissionWriteCheck = ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_SETTINGS);
             if (permissionCameraCheck == PackageManager.PERMISSION_DENIED) {
                 CommonUtil.showDialog(this, getString(R.string.dialog_title_information), getString(R.string.dialog_flash_light_permission_message), android.R.drawable.ic_dialog_alert, getString(R.string.dialog_button_ok), new CommonUtil.AlertDialogOnClickListener() {
                     @Override
@@ -429,28 +406,6 @@ public class MainActivity extends AppCompatActivity implements SensorListener {
         }
     }
 
-//    private void multiplePermissions() {
-//        int PERMISSION_ALL = 1;
-//        String[] PERMISSIONS = {Manifest.permission.CAMERA, Manifest.permission.WRITE_SETTINGS};
-//
-//        if(!hasPermissions(PERMISSIONS)){
-//            ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSION_ALL);
-//        } else {
-//            registerSensor();
-//        }
-//    }
-//
-//    public boolean hasPermissions(String... permissions) {
-//        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && permissions != null) {
-//            for (String permission : permissions) {
-//                if (ActivityCompat.checkSelfPermission(MainActivity.this, permission) != PackageManager.PERMISSION_GRANTED) {
-//                    return false;
-//                }
-//            }
-//        }
-//        return true;
-//    }
-
     private long mLastUpdate = 0;
     private float mLastX = 0;
     private float mLastY = 0;
@@ -464,7 +419,6 @@ public class MainActivity extends AppCompatActivity implements SensorListener {
                 long curTime = System.currentTimeMillis();
                 // only allow one update every 100ms.
                 if ((curTime - mLastUpdate) > 100) {
-//                    Log.d("sensor", "INSIDE SENSOR");
                     long diffTime = (curTime - mLastUpdate);
                     mLastUpdate = curTime;
 
@@ -473,7 +427,6 @@ public class MainActivity extends AppCompatActivity implements SensorListener {
                     float z = values[SensorManager.DATA_Z];
 
                     float speed = Math.abs(x+y+z - mLastX - mLastY - mLastZ) / diffTime * 10000;
-//                    Log.d("sensor", "Normal speed: " + speed);
                     if (speed > SHAKE_THRESHOLD) {
                         long time = System.currentTimeMillis();
                         if(time > (prevTime + 1000)) {
